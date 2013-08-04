@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  instructor_id: 1
+  studio_id: 1
+  when: 2013-08-03
+  time: MyString
+  cost: 1
+
+two:
+  instructor_id: 1
+  studio_id: 1
+  when: 2013-08-03
+  time: MyString
+  cost: 1

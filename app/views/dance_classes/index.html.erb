@@ -1,0 +1,35 @@
+<h1>Listing dance_classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Instructor</th>
+      <th>Studio</th>
+      <th>When</th>
+      <th>Time</th>
+      <th>Cost</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dance_classes.each do |dance_class| %>
+      <tr>
+        <td><%= dance_class.instructor_id %></td>
+        <td><%= dance_class.studio_id %></td>
+        <td><%= dance_class.when %></td>
+        <td><%= dance_class.time %></td>
+        <td><%= dance_class.cost %></td>
+        <td><%= link_to 'Show', dance_class %></td>
+        <td><%= link_to 'Edit', edit_dance_class_path(dance_class) %></td>
+        <td><%= link_to 'Destroy', dance_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dance class', new_dance_class_path %>
