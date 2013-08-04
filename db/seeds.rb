@@ -41,3 +41,24 @@ studio_hashes.each do |s_hash|
   i.save
 end
 puts "There are now #{Studio.count} rows in the instructors table."
+
+
+dance_class_hashes = [
+  {:instructor_id => "1", :studio_id => "3", :when => "2013-08-07", :time => "11:30 - 1:00 pm ", :cost => "25"},
+  {:instructor_id => "2", :studio_id => "2", :when => "2013-07-29", :time => "8:00 - 10:00 pm", :cost => "25" },
+  {:instructor_id => "3", :studio_id => "1", :when => "2013-09-10", :time => "7:00 - 8:15 pm", :cost => "25"},
+  {:instructor_id => "4", :studio_id => "2", :when => "2013-08-10", :time => "10:00 - 11:30 am", :cost => "25"},
+  {:instructor_id => "5", :studio_id => "2", :when => "2013-08-06", :time => "3:00-4:00 pm", :cost => "25"}
+]
+
+DanceClass.destroy_all
+dance_class_hashes.each do |d_hash|
+  i = DanceClass.new
+  i.instructor_id = d_hash[:instructor_id]
+  i.studio_id = d_hash[:studio_id]
+  i.when = d_hash[:when]
+  i.time = d_hash[:time]
+  i.cost = d_hash[:cost]
+  i.save
+end
+puts "There are now #{DanceClass.count} rows in the instructors table."

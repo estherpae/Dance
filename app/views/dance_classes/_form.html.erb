@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :instructor_id %><br>
-    <%= f.number_field :instructor_id %>
+    <%= f.select(:instructor_id, options_from_collection_for_select(Instructor.all, :id, :name)) %>
   </div>
   <div class="field">
     <%= f.label :studio_id %><br>
-    <%= f.number_field :studio_id %>
+     <%= f.select(:studio_id, options_from_collection_for_select(Studio.all, :id, :name) )%>
   </div>
   <div class="field">
     <%= f.label :when %><br>

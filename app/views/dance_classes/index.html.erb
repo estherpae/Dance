@@ -17,8 +17,8 @@
   <tbody>
     <% @dance_classes.each do |dance_class| %>
       <tr>
-        <td><%= dance_class.instructor_id %></td>
-        <td><%= dance_class.studio_id %></td>
+        <td><%= dance_class.instructor.name %></td>
+        <td><%= dance_class.studio.name%></td>
         <td><%= dance_class.when %></td>
         <td><%= dance_class.time %></td>
         <td><%= dance_class.cost %></td>
