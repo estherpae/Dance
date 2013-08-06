@@ -15,5 +15,15 @@
   <%= @studio.phone %>
 </p>
 
+<p><strong>Instructors:</strong></p>
+  <ul>
+    <% @studio.dance_classes.each do |dance_class| %>
+    <li>
+<!--       <%= dance_class.instructor.name %> -->
+      <%= link_to dance_class.instructor.name, instructor_url(dance_class.instructor.id)  %>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_studio_path(@studio) %> |
 <%= link_to 'Back', studios_path %>

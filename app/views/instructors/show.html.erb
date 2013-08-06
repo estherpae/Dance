@@ -15,5 +15,15 @@
   <%= @instructor.biography %>
 </p>
 
+<p><strong>Studios Teach At:</strong></p>
+  <ul>
+    <% @instructor.dance_classes.each do |dance_class| %>
+    <li>
+<!--       <%= dance_class.studio.name %> -->
+      <%= link_to dance_class.studio.name, studio_url(dance_class.studio.id)  %>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %>
