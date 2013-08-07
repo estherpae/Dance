@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Name:</strong>
+  <%= @dance_class.name %>
+</p>
+
+<p>
   <strong>Instructor:</strong>
  <!--  <%= @dance_class.instructor.name %> -->
   <%= link_to @dance_class.instructor.name, instructor_url(@dance_class.instructor.id)  %>

@@ -1,4 +1,8 @@
 Dance::Application.routes.draw do
+  resources :favorite_classes
+
+  resources :users
+
   root 'instructors#index'
 
   resources :dance_classes

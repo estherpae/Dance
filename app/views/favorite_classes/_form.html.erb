@@ -1,0 +1,26 @@
+<%= form_for(@favorite_class) do |f| %>
+  <% if @favorite_class.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@favorite_class.errors.count, "error") %> prohibited this favorite_class from being saved:</h2>
+
+      <ul>
+      <% @favorite_class.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :user_id %><br>
+<!--     <%= f.number_field :user_id %> -->
+    <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :name)) %>
+  </div>
+  <div class="field">
+    <%= f.label :dance_class_id %><br>
+    <%= f.select(:dance_class_id, options_from_collection_for_select(DanceClass.all, :id, :name)) %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

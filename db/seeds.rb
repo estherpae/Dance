@@ -32,22 +32,20 @@ puts "There are now #{Instructor.count} rows in the instructors table."
 puts "There are now #{Studio.count} rows in the studios table."
 
 
-dance_class_hashes = [
-  {:instructor_id => i1.id, :studio_id => s3.id, :when => "2013-08-07", :time => "11:30 - 1:00 pm ", :cost => "25"},
-  {:instructor_id => i2.id, :studio_id => s2.id, :when => "2013-07-29", :time => "8:00 - 10:00 pm", :cost => "25" },
-  {:instructor_id => i3.id, :studio_id => s1.id, :when => "2013-09-10", :time => "7:00 - 8:15 pm", :cost => "25"},
-  {:instructor_id => i4.id, :studio_id => s2.id, :when => "2013-08-10", :time => "10:00 - 11:30 am", :cost => "25"},
-  {:instructor_id => i5.id, :studio_id => s2.id, :when => "2013-08-06", :time => "3:00-4:00 pm", :cost => "25"}
-]
-
 DanceClass.destroy_all
-dance_class_hashes.each do |d_hash|
-  i = DanceClass.new
-  i.instructor_id = d_hash[:instructor_id]
-  i.studio_id = d_hash[:studio_id]
-  i.when = d_hash[:when]
-  i.time = d_hash[:time]
-  i.cost = d_hash[:cost]
-  i.save
-end
+ i1 = DanceClass.create({:name => "Eddy Ocampo's Master Class",  :instructor_id => i1.id, :studio_id => s3.id, :when => "2013-08-07", :time => "11:30 - 1:00 pm ", :cost => "25"})
+i2 = DanceClass.create({:name => "Kim Fletcher Stibal's Jazz Class", :instructor_id => i2.id, :studio_id => s2.id, :when => "2013-07-29", :time => "8:00 - 10:00 pm", :cost => "25" })
+i3 = DanceClass.create({:name => "Brent Caburnay's Ballet Class", :instructor_id => i3.id, :studio_id => s1.id, :when => "2013-09-10", :time => "7:00 - 8:15 pm", :cost => "25"})
+i4 = DanceClass.create({:name => "Catie Dietz Griffith's Ballet Class", :instructor_id => i4.id, :studio_id => s2.id, :when => "2013-08-10", :time => "10:00 - 11:30 am", :cost => "25"})
+i5 = DanceClass.create({:name => "Richard Smith's Intense Jazz Class", :instructor_id => i5.id, :studio_id => s2.id, :when => "2013-08-06", :time => "3:00-4:00 pm", :cost => "25"})
 puts "There are now #{DanceClass.count} rows in the dance_classes table."
+
+User.destroy_all
+  u1 = User.create({:name => "Esther"})
+  u2 = User.create({:name => "Willow"})
+puts "There are now #{User.count} rows in the User table."
+
+FavoriteClass.destroy_all
+  fc1 = FavoriteClass.create({:user_id=> u1.id, :dance_class_id => i1.id})
+  fc2 = FavoriteClass.create({:user_id=> u2.id, :dance_class_id => i2.id})
+puts "There are now #{FavoriteClass.count} rows in the FavoriteClass table."

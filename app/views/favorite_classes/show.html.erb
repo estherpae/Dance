@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @favorite_class.user.name %>
+</p>
+
+<p>
+  <strong>Dance class:</strong>
+  <ul>
+    <li>Name: <%= @favorite_class.dance_class.name %></li>
+    <ul>
+      <li>Taught By: <%= @favorite_class.dance_class.instructor.name %></li>
+      <li>Studio: <%= @favorite_class.dance_class.studio.name %></li>
+      <li>When: <%= @favorite_class.dance_class.when %></li>
+      <li>Time: <%= @favorite_class.dance_class.time %></li>
+      <li>Cost: $<%= @favorite_class.dance_class.cost %></li>
+    </ul>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_favorite_class_path(@favorite_class) %> |
+<%= link_to 'Back', favorite_classes_path %>

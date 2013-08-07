@@ -1,0 +1,29 @@
+<h1>Favorite Classes</h1>
+
+<table class = "table content-table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Dance class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorite_classes.each do |favorite_class| %>
+      <tr>
+        <td><%= favorite_class.user.name %></td>
+        <td> <%= favorite_class.dance_class.name %></td>
+        <td><%= link_to 'Show', favorite_class, :class => 'btn btn-small btn-info' %></td>
+        <td><%= link_to 'Edit', edit_favorite_class_path(favorite_class), :class => 'btn btn-small btn-warning' %></td>
+        <td><%= link_to 'Destroy', favorite_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Favorite class', new_favorite_class_path, :class => 'btn btn-large btn-success' %>
