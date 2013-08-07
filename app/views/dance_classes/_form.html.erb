@@ -1,6 +1,6 @@
 <%= form_for(@dance_class) do |f| %>
   <% if @dance_class.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@dance_class.errors.count, "error") %> prohibited this dance_class from being saved:</h2>
 
       <ul>

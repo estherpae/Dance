@@ -2,12 +2,14 @@
 
 <p>
   <strong>Instructor:</strong>
-  <%= @dance_class.instructor.name %>
+ <!--  <%= @dance_class.instructor.name %> -->
+  <%= link_to @dance_class.instructor.name, instructor_url(@dance_class.instructor.id)  %>
 </p>
 
 <p>
   <strong>Studio:</strong>
-  <%= @dance_class.studio.name %>
+<!--   <%= @dance_class.studio.name %> -->
+  <%= link_to @dance_class.studio.name, studio_url(@dance_class.studio.id)  %>
 </p>
 
 <p>
