@@ -5,5 +5,14 @@
   <%= @user.name %>
 </p>
 
+<p><strong>Favorite Classes:</strong></p>
+  <ul>
+    <% @user.favorite_classes.each do |favorite_class| %>
+    <li>
+      <%= link_to favorite_class.dance_class.name, dance_class_url(favorite_class.dance_class.id)  %>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
