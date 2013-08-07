@@ -25,5 +25,19 @@
     <% end %>
   </ul>
 
+<p><strong>Dance Classes:</strong></p>
+  <ul>
+    <% @instructor.dance_classes.each do |dance_class| %>
+    <li>
+      <%= dance_class.studio.name%>
+      <ul>
+        <li>Date: <%= dance_class.when %></li>
+        <li>Time: <%= dance_class.time %></li>
+        <li>Price: $<%= dance_class.cost %></li>
+       </ul>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %>

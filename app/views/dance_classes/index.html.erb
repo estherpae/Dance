@@ -21,7 +21,7 @@
         <td><%= dance_class.studio.name%></td>
         <td><%= dance_class.when %></td>
         <td><%= dance_class.time %></td>
-        <td><%= dance_class.cost %></td>
+        <td>$<%= dance_class.cost %></td>
         <td><%= link_to 'Show', dance_class, :class => 'btn btn-small btn-info' %></td>
         <td><%= link_to 'Edit', edit_dance_class_path(dance_class), :class => 'btn btn-small btn-warning' %></td>
         <td><%= link_to 'Destroy', dance_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
