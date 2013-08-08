@@ -4,7 +4,11 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.all
+    if params[:search]
+      @exercises = Exercise.where("category LIKE ?", "%#{params[:search]}%")
+    else
+       @exercises = Exercise.all
+    end
   end
 
   # GET /exercises/1
@@ -69,6 +73,6 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name, :user_id, :picture_url, :description)
+      params.require(:exercise).permit(:name, :user_id, :picture_url, :description, :category)
     end
 end

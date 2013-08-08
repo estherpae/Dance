@@ -1,12 +1,21 @@
 <h1>Listing exercises</h1>
 
+<div>
+<%= form_tag(exercises_url, class: "form-group", method: :get) do %>
+ <div class="col-lg-5">
+    <%= text_field_tag :search, nil, placeholder:'Search By Category', class: 'form-control cl-lg-2' %>
+  </div>
+<% end %>
+</div>
+
 <table class = "table content-table">
   <thead>
     <tr>
       <th>Name</th>
       <th>User</th>
-      <th>Picture</th>
-      <th>Description</th>
+      <th>Category</th>
+<!--       <th>Picture</th>
+      <th>Description</th> -->
       <th></th>
       <th></th>
       <th></th>
@@ -18,9 +27,10 @@
       <tr>
         <td><%= exercise.name %></td>
         <td><%= exercise.user.name %></td>
-        <td><i>Click the Show Button to See Photo</i></td>
+        <td><%= exercise.category %></td>
+<!--         <td><i>Click the Show Button to See Photo</i></td> -->
 <!--         <td> <%= exercise.picture_url%></td> -->
-        <td><%= exercise.description %></td>
+<!--         <td><%= exercise.description %></td> -->
         <td><%= link_to 'Show', exercise, :class => 'btn btn-small btn-info' %></td>
         <td><%= link_to 'Edit', edit_exercise_path(exercise), :class => 'btn btn-small btn-warning' %></td>
         <td><%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
