@@ -1,9 +1,15 @@
 Dance::Application.routes.draw do
+  root 'instructors#index'
+
+  get '/signin' => 'sessions#new', :as => 'sign_in'
+  post '/sessions/create' => 'sessions#create'
+  delete '/signout' => 'sessions#destroy', :as => 'sign_out'
+
+  resources :exercises
+
   resources :favorite_classes
 
   resources :users
-
-  root 'instructors#index'
 
   resources :dance_classes
 

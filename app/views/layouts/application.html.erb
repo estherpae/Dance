@@ -22,7 +22,20 @@
             <li><%= link_to "Classes", dance_classes_url  %></li>
             <li><%= link_to "Users", users_url  %></li>
             <li><%= link_to "Favorite Classes", favorite_classes_url  %></li>
+            <li><%= link_to "Exercises", exercises_url  %></li>
           </ul>
+          <% u = User.find_by_id(session[:user_id]) %>
+          <% if session[:user_id] %>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= link_to "sign out", sign_out_url, method: 'delete' %></li>
+            </ul>
+            <p class="navbar-text pull-right">Signed in as <a href="/users/<%= session[:user_id] %>" class="navbar-link"><%= u.name %></a></p>
+          <% else %>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= link_to "sign in", sign_in_url  %></li>
+              <li><%= link_to "sign up", new_user_url  %></li>
+            </ul>
+          <% end %>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
   </div><!-- /.navbar -->

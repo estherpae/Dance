@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130807192310) do
+ActiveRecord::Schema.define(version: 20130808020516) do
 
   create_table "dance_classes", force: true do |t|
     t.integer  "instructor_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20130807192310) do
     t.date     "when"
     t.string   "time"
     t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  create_table "exercises", force: true do |t|
+    t.integer  "user_id"
+    t.string   "picture_url"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -51,6 +60,7 @@ ActiveRecord::Schema.define(version: 20130807192310) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end

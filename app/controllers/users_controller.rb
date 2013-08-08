@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -62,6 +63,11 @@ class UsersController < ApplicationController
   end
 
   private
+    def authorize_user
+      if params[:id] != session[:user_id]
+        redirect_to root_url, notice: 'Invalid request, nice try'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -69,6 +75,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
 end

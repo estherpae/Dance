@@ -29,8 +29,9 @@
   <ul>
     <% @instructor.dance_classes.each do |dance_class| %>
     <li>
-      <%= dance_class.studio.name%>
+      <%= link_to dance_class.name, dance_class_url(dance_class.id)  %>
       <ul>
+        <li>Studio: <%= dance_class.studio.name%></li>
         <li>Date: <%= dance_class.when %></li>
         <li>Time: <%= dance_class.time %></li>
         <li>Price: $<%= dance_class.cost %></li>

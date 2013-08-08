@@ -14,5 +14,14 @@
     <% end %>
   </ul>
 
+<p><strong>Exercises <%= @user.name %> Created:</strong></p>
+  <ul>
+    <% @user.exercises.each do |exercise| %>
+    <li>
+      <%= link_to exercise.name, exercise_url(exercise.id)  %>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
