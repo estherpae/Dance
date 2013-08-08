@@ -27,9 +27,9 @@
             <td><%= instructor.name %></td>
             <td><%= instructor.style %></td>
 <!--             <td><%= instructor.biography %></td> -->
-            <td><%= link_to 'Show', instructor, :class => 'btn btn-small btn-info' %></td>
-            <td><%= link_to 'Edit', edit_instructor_path(instructor), :class => 'btn btn-small btn-warning' %></td>
-            <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+            <td><%= link_to 'Show', instructor, :class => 'btn btn-info' %></td>
+            <td><%= link_to 'Edit', edit_instructor_path(instructor), :class => 'btn btn-warning' %></td>
+            <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
           </tr>
         <% end %>
       </tbody>
@@ -37,7 +37,7 @@
     <br>
   </p>
   <p>
-    <%= link_to 'New Instructor', new_instructor_path, :class => 'btn btn-primary btn-lg' %>
+    <%= link_to 'New Instructor', new_instructor_path, :class => 'btn btn-primary btn' %>
   </p>
 </div>
 

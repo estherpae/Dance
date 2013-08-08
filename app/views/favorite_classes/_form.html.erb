@@ -11,13 +11,8 @@
     </div>
   <% end %>
 
-<div class="form-horizontal">
-  <div class="field form-group">
-    <%= f.label :user_id, class: 'control-label' %><br>
-    <div class="col-lg-4">
-      <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :name), {}, {:class =>"form-control"}) %>
-    </div>
-  </div>
+  <%= f.hidden_field :user_id, value: session[:user_id] %>
+
   <div class="field form-group">
     <%= f.label :dance_class_id, class: 'control-label' %><br>
     <div class="col-lg-4">

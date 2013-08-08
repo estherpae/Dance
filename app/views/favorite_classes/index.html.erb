@@ -21,8 +21,12 @@
         <td><%= favorite_class.user.name %></td>
         <td> <%= favorite_class.dance_class.name %></td>
         <td><%= link_to 'Show', favorite_class, :class => 'btn btn-small btn-info' %></td>
-        <td><%= link_to 'Edit', edit_favorite_class_path(favorite_class), :class => 'btn btn-small btn-warning' %></td>
-        <td><%= link_to 'Destroy', favorite_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+
+        <% if session[:user_id] == favorite_class.user_id %>
+          <td><%= link_to 'Edit', edit_favorite_class_path(favorite_class), :class => 'btn btn-small btn-warning' %></td>
+          <td><%= link_to 'Destroy', favorite_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,8 @@
 
 <br>
 
-<%= link_to 'New Favorite Class', new_favorite_class_path, :class => 'btn btn-large btn-success' %>
+<% if session[:user_id]  %>
+  <%= link_to 'New Favorite Class', new_favorite_class_path, :class => 'btn btn-large btn-success' %>
+<% else %>
+  <p><div class="alert alert-info">Please Sign In to Create a New Favorite Class</div></p>
+<% end %>

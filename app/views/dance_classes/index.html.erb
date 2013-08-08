@@ -1,55 +1,70 @@
-<h1>Classes</h1>
-
-<div>
-<%= form_tag(dance_classes_url, class: "form-group", method: :get) do %>
- <div class="col-lg-5">
-    <%= text_field_tag :search, nil, placeholder:'Search for Instructors', class: 'form-control cl-lg-2' %>
-  </div>
-<% end %>
+<div class="jumbotron">
+  <h1>Classes</h1>
 </div>
 
-<div>
-<%= form_tag(dance_classes_url, class: "form-group", method: :get) do %>
-   <div class="col-lg-5">
-    <%= text_field_tag :search2, nil, placeholder:'Search for Studios', class: 'form-control cl-lg-2' %>
-  </div>
-<% end %>
-</div>
-
-
-
-<table class = "table content-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Instructor</th>
-      <th>Studio</th>
-      <th>When</th>
-      <th>Time</th>
-      <th>Cost</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dance_classes.each do |dance_class| %>
-      <tr>
-        <td><%= dance_class.name %></td>
-        <td><%= dance_class.instructor.name %></td>
-        <td><%= dance_class.studio.name%></td>
-        <td><%= dance_class.when %></td>
-        <td><%= dance_class.time %></td>
-        <td>$<%= dance_class.cost %></td>
-        <td><%= link_to 'Show', dance_class, :class => 'btn btn-small btn-info' %></td>
-        <td><%= link_to 'Edit', edit_dance_class_path(dance_class), :class => 'btn btn-small btn-warning' %></td>
-        <td><%= link_to 'Destroy', dance_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
-      </tr>
+<div class="jumbotron">
+  <h4>Search: </h4>
+  <p>
+    <div>
+    <%= form_tag(dance_classes_url, class: "form-group", method: :get) do %>
+     <div class="col-lg-5">
+        <%= text_field_tag :search, nil, placeholder:'Search By Instructors', class: 'form-control cl-lg-2' %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+   </div>
+   <div>
+    <%= form_tag(dance_classes_url, class: "form-group", method: :get) do %>
+       <div class="col-lg-5">
+        <%= text_field_tag :search2, nil, placeholder:'Search By Studios', class: 'form-control cl-lg-2' %>
+      </div>
+    <% end %>
+  </div>
+  </p>
+</div>
 
-<br>
+<div class="jumbotron">
+  <p>
+    <table class = "table content-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+<!--           <th>Instructor</th> -->
+<!--           <th>Studio</th> -->
+          <th>When</th>
+<!--           <th>Time</th>
+          <th>Cost</th> -->
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Dance class', new_dance_class_path, :class => 'btn btn-large btn-success' %>
+      <tbody>
+        <% @dance_classes.each do |dance_class| %>
+          <tr>
+            <td><%= dance_class.name %></td>
+         <!--    <td><%= dance_class.instructor.name %></td> -->
+<!--             <td><%= dance_class.studio.name%></td> -->
+            <td><%= dance_class.when %></td>
+<!--             <td><%= dance_class.time %></td>
+            <td>$<%= dance_class.cost %></td> -->
+            <td><%= link_to 'Show', dance_class, :class => 'btn btn-small btn-info' %></td>
+            <td><%= link_to 'Edit', edit_dance_class_path(dance_class), :class => 'btn btn-small btn-warning' %></td>
+            <td><%= link_to 'Destroy', dance_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table><br>
+  </p>
+  <p><%= link_to 'New Dance class', new_dance_class_path, :class => 'btn btn-large btn-success' %></p>
+</div>
+
+
+
+
+
+
+
+
+
+

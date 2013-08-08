@@ -1,3 +1,10 @@
+<% if notice.try(:downcase).try(:include?, 'invalid')  %>
+  <div class="alert alert-danger"><%= notice %></div>
+<% elsif notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+
 <div class="jumbotron">
   <h1>Welcome to Dancer's App</h1>
   <p>This site is what every instructor, studio, and dancer dreams of.  Instructors could add in their profile into their site, so people can see their </p>
