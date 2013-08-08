@@ -4,35 +4,41 @@
   <div class="alert alert-success"><%= notice %></div>
 <% end %>
 
+<div class="jumbotron">
+  <h1>Instructors</h1>
+</div>
 
-<h1>Instructors</h1>
+<div class="jumbotron">
+  <p>
+    <table class = "table content-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Style</th>
+          <th>Biography</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @instructors.each do |instructor| %>
+          <tr>
+            <td><%= instructor.name %></td>
+            <td><%= instructor.style %></td>
+            <td><%= instructor.biography %></td>
+            <td><%= link_to 'Show', instructor, :class => 'btn btn-small btn-info' %></td>
+            <td><%= link_to 'Edit', edit_instructor_path(instructor), :class => 'btn btn-small btn-warning' %></td>
+            <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  </p>
+  <p>
+    <%= link_to 'New Instructor', new_instructor_path, :class => 'btn btn-primary btn-lg' %>
+  </p>
+</div>
 
-<table class = "table content-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Style</th>
-      <th>Biography</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @instructors.each do |instructor| %>
-      <tr>
-        <td><%= instructor.name %></td>
-        <td><%= instructor.style %></td>
-        <td><%= instructor.biography %></td>
-        <td><%= link_to 'Show', instructor, :class => 'btn btn-small btn-info' %></td>
-        <td><%= link_to 'Edit', edit_instructor_path(instructor), :class => 'btn btn-small btn-warning' %></td>
-        <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Instructor', new_instructor_path, :class => 'btn btn-large btn-success' %>

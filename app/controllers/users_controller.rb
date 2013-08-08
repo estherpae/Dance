@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   private
     def authorize_user
       if params[:id].to_i != session[:user_id]
-        redirect_to root_url, notice: 'Invalid request, nice try'
+        redirect_to root_url, notice: 'Invalid request'
       end
     end
     # Use callbacks to share common setup or constraints between actions.

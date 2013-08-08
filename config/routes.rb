@@ -1,5 +1,7 @@
 Dance::Application.routes.draw do
-  root 'instructors#index'
+  root 'homes#page'
+
+  get '/home' => 'homes#page', :as => 'home'
 
   get '/signin' => 'sessions#new', :as => 'sign_in'
   post '/sessions/create' => 'sessions#create'

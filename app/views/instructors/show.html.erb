@@ -1,44 +1,57 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice">
+    <div class="alert alert-success"><%= notice %></div>
+  </p>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @instructor.name %>
-</p>
+<div class="jumbotron">
+  <p>
+    <p>
+      <strong>Name:</strong>
+      <%= @instructor.name %>
+    </p>
 
-<p>
-  <strong>Style:</strong>
-  <%= @instructor.style %>
-</p>
+    <p>
+      <strong>Style:</strong>
+      <%= @instructor.style %>
+    </p>
 
-<p>
-  <strong>Biography:</strong>
-  <%= @instructor.biography %>
-</p>
+    <p>
+      <strong>Biography:</strong>
+      <%= @instructor.biography %>
+    </p>
 
-<p><strong>Studios Teach At:</strong></p>
-  <ul>
-    <% @instructor.dance_classes.each do |dance_class| %>
-    <li>
-<!--       <%= dance_class.studio.name %> -->
-      <%= link_to dance_class.studio.name, studio_url(dance_class.studio.id)  %>
-    </li>
-    <% end %>
-  </ul>
-
-<p><strong>Dance Classes:</strong></p>
-  <ul>
-    <% @instructor.dance_classes.each do |dance_class| %>
-    <li>
-      <%= link_to dance_class.name, dance_class_url(dance_class.id)  %>
+    <p><strong>Studios Teach At:</strong></p>
       <ul>
-        <li>Studio: <%= dance_class.studio.name%></li>
-        <li>Date: <%= dance_class.when %></li>
-        <li>Time: <%= dance_class.time %></li>
-        <li>Price: $<%= dance_class.cost %></li>
-       </ul>
-    </li>
-    <% end %>
-  </ul>
+        <% @instructor.dance_classes.each do |dance_class| %>
+        <li>
+    <!--       <%= dance_class.studio.name %> -->
+          <%= link_to dance_class.studio.name, studio_url(dance_class.studio.id)  %>
+        </li>
+        <% end %>
+      </ul>
 
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
+    <p><strong>Dance Classes:</strong></p>
+      <ul>
+        <% @instructor.dance_classes.each do |dance_class| %>
+        <li>
+          <%= link_to dance_class.name, dance_class_url(dance_class.id)  %>
+          <ul>
+            <li>Studio: <%= dance_class.studio.name%></li>
+            <li>Date: <%= dance_class.when %></li>
+            <li>Time: <%= dance_class.time %></li>
+            <li>Price: $<%= dance_class.cost %></li>
+           </ul>
+        </li>
+        <% end %>
+      </ul>
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_instructor_path(@instructor), :class => "btn btn-primary btn-lg" %> |
+    <%= link_to 'Back', instructors_path, :class => "btn btn-primary btn-lg" %>
+  </p>
+</div>
+
+
+
+

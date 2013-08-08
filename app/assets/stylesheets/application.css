@@ -15,4 +15,8 @@
 .content-table tr td {
   font-size: 20px;
 }
+h1 {
+  text-align: center;
+  text-decoration:underline;
+}
 
