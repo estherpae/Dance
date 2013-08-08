@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
   private
     def authorize_user
-      if params[:id] != session[:user_id]
+      if params[:id].to_i != session[:user_id]
         redirect_to root_url, notice: 'Invalid request, nice try'
       end
     end

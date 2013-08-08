@@ -1,8 +1,22 @@
-<u><h1>Classes</h1></u>
+<h1>Classes</h1>
 
-<%= form_tag(dance_classes_url, class: "navbar-form pull-left", method: :get) do %>
-  <%= text_field_tag :search, nil, placeholder:'Search for Instructors', class: 'form-control' %>
+<div>
+<%= form_tag(dance_classes_url, class: "form-group", method: :get) do %>
+ <div class="col-lg-5">
+    <%= text_field_tag :search, nil, placeholder:'Search for Instructors', class: 'form-control cl-lg-2' %>
+  </div>
 <% end %>
+</div>
+
+<div>
+<%= form_tag(dance_classes_url, class: "form-group", method: :get) do %>
+   <div class="col-lg-5">
+    <%= text_field_tag :search2, nil, placeholder:'Search for Studios', class: 'form-control cl-lg-2' %>
+  </div>
+<% end %>
+</div>
+
+
 
 <table class = "table content-table">
   <thead>

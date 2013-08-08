@@ -1,6 +1,10 @@
-<h1>Editing Favorite Class</h1>
+<fieldset>
+  <legend><h1>Editing Favorite Class</h1></legend>
+</fieldset>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @favorite_class %> |
-<%= link_to 'Back', favorite_classes_path %>
+<div class="col-lg-offset-5 col-lg-7">
+  <%= link_to 'Show', @favorite_class %> |
+  <%= link_to 'Back', favorite_classes_path %>
+</div>

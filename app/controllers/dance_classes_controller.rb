@@ -5,7 +5,13 @@ class DanceClassesController < ApplicationController
   # GET /dance_classes.json
   def index
     if params[:search]
-      @dance_classes = DanceClass.where("instructor_id LIKE ?", "%#{params[:search]}%")
+      # @dance_classes = DanceClass.joins(:instructor).where(instructors: {name: "#{params[:search]}"})
+
+      @dance_classes = DanceClass.joins(:instructor).where("instructors.name LIKE ?", "%#{params[:search]}%")
+
+    elsif params[:search2]
+      # @dance_classes = DanceClass.joins(:studio).where(studios: {name: "#{params[:search2]}"})
+      @dance_classes = DanceClass.joins(:studio).where("studios.name LIKE ?", "%#{params[:search2]}%")
     else
       @dance_classes = DanceClass.all
     end

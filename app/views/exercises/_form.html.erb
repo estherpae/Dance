@@ -11,23 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="form-horizontal">
+  <div class="field form-group">
+    <%= f.label :name, class: 'control-label' %><br>
+    <div class="col-lg-4">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :name)) %>
+  <div class="field form-group">
+    <%= f.label :user_id, class: 'control-label' %><br>
+    <div class="col-lg-4">
+      <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :name), {}, {:class =>"form-control"}) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :picture_url %><br>
-    <%= f.text_field :picture_url %>
+  <div class="field form-group">
+    <%= f.label :picture_url, class: 'control-label' %><br>
+    <div class="col-lg-4">
+      <%= f.text_field :picture_url, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="field form-group">
+    <%= f.label :description, class: 'control-label' %><br>
+    <div class="col-lg-4">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <div class="col-lg-offset-5 col-lg-7">
+      <%= f.submit :class => 'btn btn-default'%>
+    </div>
   </div>
 <% end %>
+</div>
