@@ -1,36 +1,54 @@
-<h1>List of Users</h1>
+<div class="jumbotron">
+  <h1>List of Users</h1>
+</div>
 
-<%= form_tag(users_url, class: "navbar-form pull-left", method: :get) do %>
-  <%= text_field_tag :search, nil, placeholder:'Search for User', class: 'form-control' %>
-<% end %>
-
-<table class = "table content-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user, :class => 'btn btn-small btn-info' %></td>
-
-
-        <% if session[:user_id] == user.id %>
-          <td><%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-warning btn-small' %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-small' %></td>
-
-        <% end %>
-      </tr>
+<div class="jumbotron">
+  <h3>Search Users:</h3>
+  <div>
+    <%= form_tag(users_url, class: "form-group", method: :get) do %>
+    <div class="col-lg-5">
+      <%= text_field_tag :search, nil, placeholder:'Search for User', class: 'form-control cl-lg-2' %>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
+<div class="jumbotron">
+  <p>
+    <table class = "table content-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-<%= link_to 'New User', new_user_path, :class => 'btn btn-large btn-success' %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= link_to 'Show', user, :class => 'btn btn-small btn-info' %></td>
+
+
+            <% if session[:user_id] == user.id %>
+              <td><%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-warning btn-small' %></td>
+              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-small' %></td>
+
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  </p>
+  <p>
+    <%= link_to 'New User', new_user_path, :class => 'btn btn-large btn-success' %>
+  </p>
+</div>
+
+
+
+
+

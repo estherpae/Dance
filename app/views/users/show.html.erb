@@ -4,28 +4,38 @@
   </p>
 <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="jumbotron">
+  <p>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p><strong>Favorite Classes:</strong></p>
-  <ul>
-    <% @user.favorite_classes.each do |favorite_class| %>
-    <li>
-      <%= link_to favorite_class.dance_class.name, dance_class_url(favorite_class.dance_class.id)  %>
-    </li>
-    <% end %>
-  </ul>
+    <p><strong>Favorite Classes:</strong></p>
+      <ul>
+        <% @user.favorite_classes.each do |favorite_class| %>
+        <li>
+          <%= link_to favorite_class.dance_class.name, dance_class_url(favorite_class.dance_class.id)  %>
+        </li>
+        <% end %>
+      </ul>
 
-<p><strong>Exercises <%= @user.name %> Created:</strong></p>
-  <ul>
-    <% @user.exercises.each do |exercise| %>
-    <li>
-      <%= link_to exercise.name, exercise_url(exercise.id)  %>
-    </li>
-    <% end %>
-  </ul>
+    <p><strong>Exercises <%= @user.name %> Created:</strong></p>
+      <ul>
+        <% @user.exercises.each do |exercise| %>
+        <li>
+          <%= link_to exercise.name, exercise_url(exercise.id)  %>
+        </li>
+        <% end %>
+      </ul>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="jumbotron">
+  <p>
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+  </p>
+</div>
+
+

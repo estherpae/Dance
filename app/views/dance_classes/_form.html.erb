@@ -10,47 +10,53 @@
     </div>
   <% end %>
 
-<div class="form-horizontal">
-  <div class="field form-group">
-    <%= f.label :name, class: 'control-label' %><br>
-    <div class="col-lg-4">
-      <%= f.text_field :name, class: "form-control" %>
+<div class="jumbotron">
+  <p>
+    <div class="form-horizontal">
+      <div class="field form-group">
+        <%= f.label :name, class: 'control-label' %><br>
+        <div class="col-lg-4">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :instructor_id, class: 'control-label' %><br>
+        <div class="col-lg-4">
+          <%= f.select(:instructor_id, options_from_collection_for_select(Instructor.all, :id, :name), {}, {:class => "form-control"}) %>
+        </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :studio_id, class: 'control-label' %><br>
+        <div class="col-lg-4">
+         <%= f.select(:studio_id, options_from_collection_for_select(Studio.all, :id, :name), {}, {:class => "form-control"} )%>
+        </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :when, class: 'control-label' %><br>
+        <div class="col-lg-4">
+          <%= f.date_select :when, class: "form-control" %>
+        </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :time, class: 'control-label' %><br>
+        <div class="col-lg-4">
+         <%= f.text_field :time, class: "form-control" %>
+        </div>
+      </div>
+      <div class="field form-group">
+        <%= f.label :cost, class: 'control-label' %><br>
+        <div class="col-lg-4">
+          $ <%= f.number_field :cost, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="col-lg-offset-5 col-lg-7">
+          <%= f.submit :class => 'btn btn-default'%>
+        </div>
+      </div>
+    <% end %>
     </div>
-  </div>
-  <div class="field form-group">
-    <%= f.label :instructor_id, class: 'control-label' %><br>
-    <div class="col-lg-4">
-      <%= f.select(:instructor_id, options_from_collection_for_select(Instructor.all, :id, :name), {}, {:class => "form-control"}) %>
-    </div>
-  </div>
-  <div class="field form-group">
-    <%= f.label :studio_id, class: 'control-label' %><br>
-    <div class="col-lg-4">
-     <%= f.select(:studio_id, options_from_collection_for_select(Studio.all, :id, :name), {}, {:class => "form-control"} )%>
-    </div>
-  </div>
-  <div class="field form-group">
-    <%= f.label :when, class: 'control-label' %><br>
-    <div class="col-lg-4">
-      <%= f.date_select :when, class: "form-control" %>
-    </div>
-  </div>
-  <div class="field form-group">
-    <%= f.label :time, class: 'control-label' %><br>
-    <div class="col-lg-4">
-     <%= f.text_field :time, class: "form-control" %>
-    </div>
-  </div>
-  <div class="field form-group">
-    <%= f.label :cost, class: 'control-label' %><br>
-    <div class="col-lg-4">
-      $ <%= f.number_field :cost, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-actions">
-    <div class="col-lg-offset-5 col-lg-7">
-      <%= f.submit :class => 'btn btn-default'%>
-    </div>
-  </div>
-<% end %>
+  </p>
 </div>
+
+

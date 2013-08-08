@@ -4,45 +4,57 @@
   </p>
 <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @studio.name %>
-</p>
+<div class="jumbotron">
+  <p>
+    <p>
+      <strong>Name:</strong>
+      <%= @studio.name %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @studio.address %>
-</p>
+    <p>
+      <strong>Address:</strong>
+      <%= @studio.address %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @studio.phone %>
-</p>
+    <p>
+      <strong>Phone:</strong>
+      <%= @studio.phone %>
+    </p>
 
-<p><strong>Instructors:</strong></p>
-  <ul>
-    <% @studio.dance_classes.each do |dance_class| %>
-    <li>
-<!--       <%= dance_class.instructor.name %> -->
-      <%= link_to dance_class.instructor.name, instructor_url(dance_class.instructor.id)  %>
-    </li>
-    <% end %>
-  </ul>
-
-<p><strong>Dance Classes:</strong></p>
-  <ul>
-    <% @studio.dance_classes.each do |dance_class| %>
-    <li>
-       <%= link_to dance_class.name, dance_class_url(dance_class.id)  %>
+    <p><strong>Instructors:</strong></p>
       <ul>
-        <li>Instuctor: <%= dance_class.instructor.name%></li>
-        <li>Date: <%= dance_class.when %></li>
-        <li>Time: <%= dance_class.time %></li>
-        <li>Price: $<%= dance_class.cost %></li>
-       </ul>
-    </li>
-    <% end %>
-  </ul>
+        <% @studio.dance_classes.each do |dance_class| %>
+        <li>
+    <!--       <%= dance_class.instructor.name %> -->
+          <%= link_to dance_class.instructor.name, instructor_url(dance_class.instructor.id)  %>
+        </li>
+        <% end %>
+      </ul>
 
-<%= link_to 'Edit', edit_studio_path(@studio) %> |
-<%= link_to 'Back', studios_path %>
+    <p><strong>Dance Classes:</strong></p>
+      <ul>
+        <% @studio.dance_classes.each do |dance_class| %>
+        <li>
+           <%= link_to dance_class.name, dance_class_url(dance_class.id)  %>
+          <ul>
+            <li>Instuctor: <%= dance_class.instructor.name%></li>
+            <li>Date: <%= dance_class.when %></li>
+            <li>Time: <%= dance_class.time %></li>
+            <li>Price: $<%= dance_class.cost %></li>
+           </ul>
+        </li>
+        <% end %>
+      </ul>
+  </p>
+
+</div>
+
+<div class="jumbotron">
+  <p>
+    <%= link_to 'Edit', edit_studio_path(@studio) %> |
+    <%= link_to 'Back', studios_path %>
+  </p>
+</div>
+
+
+

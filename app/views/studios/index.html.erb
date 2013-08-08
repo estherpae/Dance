@@ -1,31 +1,41 @@
-<h1>Studios</h1>
+<div class="jumbotron">
+  <h1>Studios</h1>
+</div>
 
-<table class = "table content-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="jumbotron">
+  <p>
+    <table class = "table content-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+    <!--       <th>Address</th>
+          <th>Phone</th> -->
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @studios.each do |studio| %>
-      <tr>
-        <td><%= studio.name %></td>
-        <td><%= studio.address %></td>
-        <td><%= studio.phone %></td>
-        <td><%= link_to 'Show', studio, :class => 'btn btn-small btn-info' %></td>
-        <td><%= link_to 'Edit', edit_studio_path(studio), :class => 'btn btn-small btn-warning' %></td>
-        <td><%= link_to 'Destroy', studio, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @studios.each do |studio| %>
+          <tr>
+            <td><%= studio.name %></td>
+    <!--         <td><%= studio.address %></td>
+            <td><%= studio.phone %></td> -->
+            <td><%= link_to 'Show', studio, :class => 'btn btn-small btn-info' %></td>
+            <td><%= link_to 'Edit', edit_studio_path(studio), :class => 'btn btn-small btn-warning' %></td>
+            <td><%= link_to 'Destroy', studio, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  </p>
+  <p>
+   <%= link_to 'New Studio', new_studio_path, :class => 'btn btn-large btn-success' %>
+  </p>
+</div>
 
-<br>
 
-<%= link_to 'New Studio', new_studio_path, :class => 'btn btn-large btn-success' %>
+
+
