@@ -1,4 +1,8 @@
-<h1>List of Users</h1>
+<u><h1>List of Users</h1></u>
+
+<%= form_tag(users_url, class: "navbar-form pull-left", method: :get) do %>
+  <%= text_field_tag :search, nil, placeholder:'Search for User', class: 'form-control' %>
+<% end %>
 
 <table class = "table content-table">
   <thead>

@@ -4,7 +4,11 @@ class DanceClassesController < ApplicationController
   # GET /dance_classes
   # GET /dance_classes.json
   def index
-    @dance_classes = DanceClass.all
+    if params[:search]
+      @dance_classes = DanceClass.where("instructor_id LIKE ?", "%#{params[:search]}%")
+    else
+      @dance_classes = DanceClass.all
+    end
   end
 
   # GET /dance_classes/1

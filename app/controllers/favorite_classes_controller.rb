@@ -4,7 +4,11 @@ class FavoriteClassesController < ApplicationController
   # GET /favorite_classes
   # GET /favorite_classes.json
   def index
-    @favorite_classes = FavoriteClass.all
+    if params[:search]
+      @favorite_classes = FavoriteClass.where("user_id LIKE ?", "%#{params[:search]}%")
+    else
+      @favorite_classes = FavoriteClass.all
+    end
   end
 
   # GET /favorite_classes/1

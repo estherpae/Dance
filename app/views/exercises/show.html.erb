@@ -7,7 +7,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @exercise.user.name %>
+  <%= link_to @exercise.user.name, user_url(@exercise.user.id)  %>
 </p>
 
 <p>

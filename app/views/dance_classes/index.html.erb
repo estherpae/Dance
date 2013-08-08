@@ -1,4 +1,8 @@
-<h1>Classes</h1>
+<u><h1>Classes</h1></u>
+
+<%= form_tag(dance_classes_url, class: "navbar-form pull-left", method: :get) do %>
+  <%= text_field_tag :search, nil, placeholder:'Search for Instructors', class: 'form-control' %>
+<% end %>
 
 <table class = "table content-table">
   <thead>

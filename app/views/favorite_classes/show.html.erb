@@ -2,13 +2,13 @@
 
 <p>
   <strong>User:</strong>
-  <%= @favorite_class.user.name %>
+  <%= link_to @favorite_class.user.name, user_url(@favorite_class.user.id)  %>
 </p>
 
 <p>
   <strong>Dance class:</strong>
   <ul>
-    <li>Name: <%= @favorite_class.dance_class.name %></li>
+    <li><%= link_to @favorite_class.dance_class.name, dance_class_url(@favorite_class.dance_class.id)  %></li>
     <ul>
       <li>Taught By: <%= @favorite_class.dance_class.instructor.name %></li>
       <li>Studio: <%= @favorite_class.dance_class.studio.name %></li>

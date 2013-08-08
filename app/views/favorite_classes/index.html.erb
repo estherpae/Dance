@@ -1,5 +1,9 @@
 <h1>Favorite Classes</h1>
 
+<%= form_tag(favorite_classes_url, class: "navbar-form pull-left", method: :get) do %>
+  <%= text_field_tag :search, nil, placeholder:'Search for User', class: 'form-control' %>
+<% end %>
+
 <table class = "table content-table">
   <thead>
     <tr>
