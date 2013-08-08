@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav pull-right">
               <li><%= link_to "sign out", sign_out_url, method: 'delete' %></li>
             </ul>
-            <p class="navbar-text pull-right">Signed in as <a href="/users/<%= session[:user_id] %>" class="navbar-link"><%= u.name %></a></p>
+            <p class="navbar-text pull-right">Signed in as <a href="/users/<%= session[:user_id] %>" class="navbar-link"><%= session[:username] %></a></p>
           <% else %>
             <ul class="nav navbar-nav pull-right">
               <li><%= link_to "sign in", sign_in_url  %></li>

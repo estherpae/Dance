@@ -5,7 +5,7 @@
     <tr>
       <th>Name</th>
       <th>User</th>
-      <th>Picture url</th>
+      <th>Picture</th>
       <th>Description</th>
       <th></th>
       <th></th>
@@ -18,7 +18,8 @@
       <tr>
         <td><%= exercise.name %></td>
         <td><%= exercise.user.name %></td>
-        <td><%= exercise.picture_url %></td>
+        <td><i>Click the Show Button to See Photo</i></td>
+<!--         <td> <%= exercise.picture_url%></td> -->
         <td><%= exercise.description %></td>
         <td><%= link_to 'Show', exercise, :class => 'btn btn-small btn-info' %></td>
         <td><%= link_to 'Edit', edit_exercise_path(exercise), :class => 'btn btn-small btn-warning' %></td>

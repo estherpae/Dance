@@ -11,13 +11,13 @@
 </p>
 
 <p>
-  <strong>Picture url:</strong>
-  <%= @exercise.picture_url %>
+  <strong>Description:</strong>
+  <%= @exercise.description %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @exercise.description %>
+  <strong>Picture:</strong>
+  <img src="<%= @exercise.picture_url%>">
 </p>
 
 <%= link_to 'Edit', edit_exercise_path(@exercise) %> |
