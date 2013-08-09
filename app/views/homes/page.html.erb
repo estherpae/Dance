@@ -1,11 +1,17 @@
 <% if notice.try(:downcase).try(:include?, 'invalid')  %>
-  <div class="alert alert-danger"><%= notice %></div>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= notice %>
+  </div>
 <% elsif notice %>
-  <div class="alert alert-success"><%= notice %></div>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= notice %>
+  </div>
 <% end %>
 
 
 <div class="jumbotron">
-  <h1>Welcome to Dancer's App</h1>
-  <p>This site is what every instructor, studio, and dancer dreams of.  Instructors could add in their profile into their site, so people can see their </p>
+  <h1>Welcome to Chance to Dance</h1>
+  <p>This site is what every instructor, studio, and dancer dreams of.  Instructors and studios can add profiles to this site and then add the dance classes so students can know who is teaching, where the class is, when it is, how much it cost, and what time the class starts and end.  Through the easy search bars, dancers can find when certain instructors are teaching or what classes are going on at certain studios.  Dancers can also make profiles where they can favorite a dance class so they remeber the class or share dancer exercises to help other dancers.  Explore Chance the Dance! Thank you for Visiting! :) </p>
 </div>

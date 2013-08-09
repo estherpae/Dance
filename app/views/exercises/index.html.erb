@@ -3,13 +3,20 @@
 </div>
 
 <div class="jumbotron">
-  <h3>Seach Exercises:</h3>
-  <div>
-  <%= form_tag(exercises_url, class: "form-group", method: :get) do %>
-   <div class="col-lg-5">
-      <%= text_field_tag :search, nil, placeholder:'Search By Category', class: 'form-control cl-lg-2' %>
-    </div>
-  <% end %>
+  <h3>Search Exercises: </h3>
+    <div>
+    <%= form_tag(exercises_url, class: "form-group", method: :get) do %>
+     <div class="col-lg-5">
+        <%= text_field_tag :search, nil, placeholder:'Search By Name', class: 'form-control cl-lg-2' %>
+      </div>
+    <% end %>
+   </div>
+   <div>
+    <%= form_tag(exercises_url, class: "form-group", method: :get) do %>
+       <div class="col-lg-5">
+        <%= text_field_tag :search2, nil, placeholder:'Search By Category', class: 'form-control cl-lg-2' %>
+      </div>
+    <% end %>
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 <%= form_for(@studio) do |f| %>
   <% if @studio.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@studio.errors.count, "error") %> prohibited this studio from being saved:</h2>
 
       <ul>
