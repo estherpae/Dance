@@ -1,41 +1,55 @@
-<h1>Favorite Classes</h1>
+<div class="jumbotron">
+  <h1>Favorite Classes</h1>
+</div>
 
-<%= form_tag(favorite_classes_url, class: "navbar-form pull-left", method: :get) do %>
-  <%= text_field_tag :search, nil, placeholder:'Search for User', class: 'form-control' %>
-<% end %>
+<div class="jumbotron">
+  <h3>Search Favorite Dance Classes:</h3>
+  <div>
+   <%= form_tag(favorite_classes_url, class: "navbar-form pull-left", method: :get) do %>
+   <%= text_field_tag :search, nil, placeholder:'Search for User', class: 'form-control' %>
+   <% end %>
+  </div>
+</div>
 
-<table class = "table content-table">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Dance class</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @favorite_classes.each do |favorite_class| %>
+<div class="jumbotron">
+  <p>
+    <table class = "table content-table">
+    <thead>
       <tr>
-        <td><%= favorite_class.user.name %></td>
-        <td> <%= favorite_class.dance_class.name %></td>
-        <td><%= link_to 'Show', favorite_class, :class => 'btn btn-small btn-info' %></td>
-
-        <% if session[:user_id] == favorite_class.user_id %>
-          <td><%= link_to 'Edit', edit_favorite_class_path(favorite_class), :class => 'btn btn-small btn-warning' %></td>
-          <td><%= link_to 'Destroy', favorite_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
-        <% end %>
-
+        <th>User</th>
+        <th>Dance class</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
+    </thead>
+
+    <tbody>
+      <% @favorite_classes.each do |favorite_class| %>
+        <tr>
+          <td><%= favorite_class.user.name %></td>
+          <td> <%= favorite_class.dance_class.name %></td>
+          <td><%= link_to 'Show', favorite_class, :class => 'btn btn-small btn-info' %></td>
+
+          <% if session[:user_id] == favorite_class.user_id %>
+            <td><%= link_to 'Edit', edit_favorite_class_path(favorite_class), :class => 'btn btn-small btn-warning' %></td>
+            <td><%= link_to 'Destroy', favorite_class, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small btn-danger' %></td>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  </p>
+  <p>
+    <% if session[:user_id]  %>
+      <%= link_to 'New Favorite Class', new_favorite_class_path, :class => 'btn btn-large btn-success' %>
+    <% else %>
+      <p><div class="alert alert-info">Please Sign In to Create a New Favorite Class</div></p>
     <% end %>
-  </tbody>
-</table>
+  </p>
+</div>
 
-<br>
 
-<% if session[:user_id]  %>
-  <%= link_to 'New Favorite Class', new_favorite_class_path, :class => 'btn btn-large btn-success' %>
-<% else %>
-  <p><div class="alert alert-info">Please Sign In to Create a New Favorite Class</div></p>
-<% end %>
+

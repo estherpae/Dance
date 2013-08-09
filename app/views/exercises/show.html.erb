@@ -4,30 +4,40 @@
   </p>
 <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @exercise.name %>
-</p>
+<div class="jumbotron">
+  <p>
+    <p>
+      <strong>Name:</strong>
+      <%= @exercise.name %>
+    </p>
 
-<p>
-  <strong>User:</strong>
-  <%= link_to @exercise.user.name, user_url(@exercise.user.id)  %>
-</p>
+    <p>
+      <strong>User:</strong>
+      <%= link_to @exercise.user.name, user_url(@exercise.user.id)  %>
+    </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @exercise.category %>
-</p>
+    <p>
+      <strong>Category:</strong>
+      <%= @exercise.category %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @exercise.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @exercise.description %>
+    </p>
 
-<p>
-  <strong>Picture:</strong>
-  <img src="<%= @exercise.picture_url%>">
-</p>
+    <p>
+      <strong>Picture:</strong>
+      <img src="<%= @exercise.picture_url%>">
+    </p>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
-<%= link_to 'Back', exercises_path %>
+<div class="jumbotron">
+  <p>
+    <%= link_to 'Edit', edit_exercise_path(@exercise), :class => "btn btn-default" %> |
+    <%= link_to 'Back', exercises_path, :class => "btn btn-default" %>
+  </p>
+</div>
+
+

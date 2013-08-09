@@ -1,10 +1,12 @@
-<fieldset>
-  <legend><h1>Editing Favorite Class</h1></legend>
-</fieldset>
+<div class="jumbotron">
+  <h1>Editing Favorite Class</h1>
+</div>
 
 <%= render 'form' %>
 
-<div class="col-lg-offset-5 col-lg-7">
-  <%= link_to 'Show', @favorite_class %> |
-  <%= link_to 'Back', favorite_classes_path %>
+<div class="jumbotron">
+  <p>
+    <%= link_to 'Show', @favorite_class, :class => 'btn btn-default ' %> |
+    <%= link_to 'Back', favorite_classes_path, :class => 'btn btn-default ' %>
+  </p>
 </div>

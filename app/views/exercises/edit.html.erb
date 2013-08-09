@@ -1,10 +1,13 @@
-<fieldset>
-  <legend><h1>Editing exercise</h1></legend>
-</fieldset>
+<div class="jumbotron">
+  <h1>Editing exercise</h1>
+</div>
 
 <%= render 'form' %>
 
-<div class="col-lg-offset-5 col-lg-7">
-  <%= link_to 'Show', @exercise %> |
-  <%= link_to 'Back', exercises_path %>
+<div class="jumbotron">
+  <p>
+    <%= link_to 'Show', @exercise, :class => 'btn btn-default ' %> |
+    <%= link_to 'Back', exercises_path, :class => 'btn btn-default ' %>
+  </p>
 </div>
+
