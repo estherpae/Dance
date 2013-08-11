@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     if params[:search]
-      @users = User.where("name LIKE ?", "%#{params[:search]}%")
+      @users = User.where("LOWER(name) LIKE ?", "%#{params[:search].downcase}%")
     else
       @users = User.all
     end

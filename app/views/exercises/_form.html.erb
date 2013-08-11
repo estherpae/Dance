@@ -1,6 +1,6 @@
 <%= form_for(@exercise) do |f| %>
   <% if @exercise.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
 
@@ -38,7 +38,7 @@
       </div>
 
 
-    <% category_array = ["Flexibility", "Flexibility - Hip Flexor", "Flexibility - Back", "Flexibility = Legs", "Stregthen", "Stregthen - Arms", "Stregthen - Abs", "Stregthen - Inner Thighs", "Stregthen - Ankles", "Other"] %>
+    <% category_array = ["Flexibility", "Flexibility - Hip Flexor", "Flexibility - Back", "Flexibility - Legs", "Stregthen", "Stregthen - Arms", "Stregthen - Abs", "Stregthen - Inner Thighs", "Stregthen - Ankles", "Other"] %>
       <div class="field form-group">
         <%= f.label :category, class: 'control-label' %><br>
         <div class="col-lg-4">

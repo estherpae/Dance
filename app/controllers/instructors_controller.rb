@@ -4,7 +4,12 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   def index
-    @instructors = Instructor.all
+    if params[:search]
+      @instructors = Instructor.where("LOWER(style) LIKE ?", "%#{params[:search].downcase}%")
+    else
+       @instructors = Instructor.all
+    end
+
   end
 
   # GET /instructors/1

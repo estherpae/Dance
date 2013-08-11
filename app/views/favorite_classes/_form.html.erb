@@ -1,6 +1,6 @@
 <%= form_for(@favorite_class) do |f| %>
   <% if @favorite_class.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@favorite_class.errors.count, "error") %> prohibited this favorite_class from being saved:</h2>
 

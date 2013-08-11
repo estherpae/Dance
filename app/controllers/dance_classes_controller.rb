@@ -7,11 +7,11 @@ class DanceClassesController < ApplicationController
     if params[:search]
       # @dance_classes = DanceClass.joins(:instructor).where(instructors: {name: "#{params[:search]}"})
 
-      @dance_classes = DanceClass.joins(:instructor).where("instructors.name LIKE ?", "%#{params[:search]}%")
+      @dance_classes = DanceClass.joins(:instructor).where("LOWER(instructors.name) LIKE ?", "%#{params[:search].downcase}%")
 
     elsif params[:search2]
       # @dance_classes = DanceClass.joins(:studio).where(studios: {name: "#{params[:search2]}"})
-      @dance_classes = DanceClass.joins(:studio).where("studios.name LIKE ?", "%#{params[:search2]}%")
+      @dance_classes = DanceClass.joins(:studio).where("LOWER(studios.name) LIKE ?", "%#{params[:search2].downcase}%")
     else
       @dance_classes = DanceClass.all
     end

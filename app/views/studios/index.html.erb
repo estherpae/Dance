@@ -3,6 +3,17 @@
 </div>
 
 <div class="jumbotron">
+  <h3>Search Studios: </h3>
+    <div>
+    <%= form_tag(studios_url, class: "form-group", method: :get) do %>
+     <div class="col-lg-5">
+        <%= text_field_tag :search, nil, placeholder:'Search By Locations', class: 'form-control cl-lg-2' %>
+      </div>
+    <% end %>
+   </div>
+</div>
+
+<div class="jumbotron">
   <p>
     <table class = "table content-table">
       <thead>

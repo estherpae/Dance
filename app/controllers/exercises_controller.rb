@@ -5,9 +5,9 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
   def index
     if params[:search]
-      @exercises = Exercise.where("name LIKE ?", "%#{params[:search]}%")
+      @exercises = Exercise.where("LOWER(name) LIKE ?", "%#{params[:search].downcase}%")
     elsif params[:search2]
-      @exercises = Exercise.where("category LIKE ?", "%#{params[:search2]}%")
+      @exercises = Exercise.where("LOWER(category) LIKE ?", "%#{params[:search2].downcase}%")
     else
        @exercises = Exercise.all
     end

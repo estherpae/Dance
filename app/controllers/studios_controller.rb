@@ -4,7 +4,12 @@ class StudiosController < ApplicationController
   # GET /studios
   # GET /studios.json
   def index
-    @studios = Studio.all
+    if params[:search]
+      @studios = Studio.where("LOWER(address) LIKE ?", "%#{params[:search].downcase}%")
+    else
+      @studios = Studio.all
+    end
+
   end
 
   # GET /studios/1

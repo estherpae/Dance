@@ -7,7 +7,7 @@ class FavoriteClassesController < ApplicationController
   def index
     if params[:search]
       # @favorite_classes = FavoriteClass.joins(:user).where(users: {name: "#{params[:search]}"})
-      @favorite_classes = FavoriteClass.joins(:user).where("users.name LIKE ?", "%#{params[:search]}%")
+      @favorite_classes = FavoriteClass.joins(:user).where("LOWER(users.name) LIKE ?", "%#{params[:search].downcase}%")
     else
       @favorite_classes = FavoriteClass.all
     end
